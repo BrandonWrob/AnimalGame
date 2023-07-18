@@ -1,0 +1,9 @@
+Git Commit: 2704d155d3617e1a7f0541e081c2e1c00192f205
+Mon Jul 17 23:45:38 EDT 2023
+Contains Academic Integrity Log and Contract
+.gitignore included
+Incorrect Project Structure : did not find Project4/project_docs
+Incorrect Project Structure : did not find Project4/images
+No Checkstyle Errors in src files
+Checkstyle Errors in test files
+Failing at least one of your Unit & Integration Tests
