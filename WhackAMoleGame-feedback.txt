@@ -1,8 +1,7 @@
-Git Commit: 16a1cdd092f7f4264ff5b2c352e413f40a290527
-Mon Jul 17 23:58:43 EDT 2023
+Git Commit: 087239ef455b23dfc088165330a8865aeb35a88e
+Tue Jul 18 00:02:38 EDT 2023
 Contains Academic Integrity Log and Contract
 .gitignore included
-Incorrect Project Structure : did not find Project4/images
 No Checkstyle Errors in src files
 Checkstyle Errors in test files
 Failing at least one of your Unit & Integration Tests
