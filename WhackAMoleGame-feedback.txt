@@ -1,5 +1,5 @@
-Git Commit: 8d97ef0058b135ee965d7596968d5d498e3166dc
-Mon Jul 17 23:52:58 EDT 2023
+Git Commit: db82d435d2fb207eb1e6f88424efae1e309c3ddd
+Mon Jul 17 23:54:13 EDT 2023
 Contains Academic Integrity Log and Contract
 .gitignore included
 Incorrect Project Structure : did not find Project4/images
