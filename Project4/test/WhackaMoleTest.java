@@ -24,6 +24,10 @@ public class WhackaMoleTest  {
         whackaMole = new WhackaMole(true);
     }
 
+    /**
+     * Test that the class constants in WhackAMole are in correct
+     * positions in row and have correct values
+     */
     @Test
     public void testConstants() {
         // The following test tests that required constants are defined as specified
@@ -44,6 +48,10 @@ public class WhackaMoleTest  {
         assertTrue(Arrays.deepEquals(symbolPoints,WhackaMole.SYMBOL_POINTS), "SYMBOL_POINTS" );
     }
 
+    /**
+     * Test that the constructor works properly in the
+     * WhackaMole class
+     */
     @Test
     public void testConstructor() {
 
@@ -56,7 +64,10 @@ public class WhackaMoleTest  {
         assertFalse(whackaMole.hasBeenClickedOn(2, 4), "Not clicked on at 2 4");
     }
 
-
+    /**
+     * test that the grid method works properly in the
+     * WhackaMole class
+     */
     @Test
     public void testGrid() {
         Grid grid = whackaMole.getGrid();
@@ -68,6 +79,10 @@ public class WhackaMoleTest  {
         assertEquals(exp, grid.toString(), "Grid is correct");
     }
 
+    /**
+     * test that ClickOnSymbol method works properly
+     * in the WhackAMole class
+     */
     @Test
     public void testClickOnSymbolAndUpdateNextRowAndCol() {
         whackaMole.clickOnSymbol(0,0);
@@ -77,6 +92,9 @@ public class WhackaMoleTest  {
         assertEquals(1, whackaMole.getNextCol(), "Click on one symbol next col"); 
     }
 
+    /**
+     * test that the addMiss method works properly
+     */
     @Test
     public void testAddMissAndUpdateNextRowAndCol() {
         whackaMole.addMiss();
@@ -84,6 +102,9 @@ public class WhackaMoleTest  {
         assertEquals(1, whackaMole.getNextCol(), "Miss one symbol next col"); 
     }
 
+    /**
+     * test scenerio where user click all symbols
+     */
     @Test
     public void testallSymbolsClickedOn() {
         assertFalse(whackaMole.allSymbolsClickedOn(), "allSymboksClickedOn no clicks");
@@ -98,7 +119,9 @@ public class WhackaMoleTest  {
         assertEquals(0, whackaMole.getNumberOfMisses(), "allSymboksClickedOn no misses");
     }
     
-
+    /**
+     * test standard game scenerio
+     */
     @Test
     public void testPlayWhackaMole1() {
         whackaMole.clickOnSymbol(0,0);
@@ -110,14 +133,79 @@ public class WhackaMoleTest  {
         assertEquals(2, whackaMole.getNumberOfMisses(), "Play WhackaMole 1 number of misses");
     }
 
-    // TODO: Add 4 tests: 
-    // test game play with no misses
-    // test game play with all misses
-    // test game play your choice
-    // test game play your choice
-    // Each test should be in its own method and 
-    // call clickOnSymbol() and/or addMiss() at least 5 times
-       
+    /**
+     *  test game scenerio where user does not miss
+     */
+    @Test
+    public void testGamePlayWithNoMisses() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                whackaMole.clickOnSymbol(i, j);
+            }
+        }
+        assertTrue(whackaMole.allSymbolsClickedOn(), "Game play with no misses - "
+            + "all symbols clicked on");
+        assertEquals(585, whackaMole.getTotalScore(), "Game play with no misses - "
+            + "total score");
+        assertEquals(0, whackaMole.getNumberOfMisses(), "Game play with no misses -"
+            + " number of misses");
+    }
+
+    /**
+     * test game scenerio where user misses all animals
+     */
+    @Test
+    public void testGamePlayWithAllMisses() {
+        for (int i = 0; i < 25; i++) {
+            whackaMole.addMiss();
+        }
+        assertFalse(whackaMole.allSymbolsClickedOn(), "Game play with all misses - "
+            + "no symbols clicked on");
+        assertEquals(0, whackaMole.getTotalScore(), "Game play with all misses - " 
+            + "total score");
+        assertEquals(25, whackaMole.getNumberOfMisses(), "Game play with all misses - "
+            + "number of misses");
+    }
+
+    /**
+     * test game scenerio where user hits specific animals
+     * plus misses 5 times
+     */
+    @Test 
+    public void testGamePlayCallSpecificSymbolsWith5Misses() {
+        whackaMole.clickOnSymbol(2, 1);
+        whackaMole.clickOnSymbol(1, 2);
+        whackaMole.clickOnSymbol(0, 0);
+        whackaMole.clickOnSymbol(3, 1);
+        whackaMole.clickOnSymbol(4, 4);
+        for (int i = 0; i < 5; i++) {
+            whackaMole.addMiss();
+        }
+        assertFalse(whackaMole.allSymbolsClickedOn(), "Game play call specific symbols "
+            + "with 5 misses - not all symbols clicked on");
+        assertEquals(90, whackaMole.getTotalScore(), "Game play call specific symbols with "
+            + "5 misses - total score");
+        assertEquals(5, whackaMole.getNumberOfMisses(), "Game play call specific symbols "
+            + "with 5 misses - number of misses");
+    }
+
+    /**
+     * test game scenerio where user hits an animal, then misses
+     * back and fourth
+     */
+    @Test
+    public void testGamePlayWithMissHitMissHitAnd5Misses() {
+        whackaMole.clickOnSymbol(1, 2);
+        whackaMole.addMiss();
+        whackaMole.clickOnSymbol(3, 4);
+        whackaMole.addMiss();
+        assertFalse(whackaMole.allSymbolsClickedOn(), "Game play with miss hit miss hit - "
+            + "not all symbols clicked on");
+        assertEquals(55, whackaMole.getTotalScore(), "Game play with miss hit miss hit - "
+            + "total score");
+        assertEquals(2, whackaMole.getNumberOfMisses(), "Game play with miss hit miss hit - "
+            + "number of misses");
+    }     
     
     /**
      * Tests exceptions 
