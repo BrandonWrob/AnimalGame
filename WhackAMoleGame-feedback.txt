@@ -1,9 +1,9 @@
-Git Commit: ca45fff43a4bd46cbe107c55746b4421bb3fcc8c
-Thu Jul 20 16:06:20 EDT 2023
+Git Commit: 393c59f34fd55ddd1ce95ff5ec718276e9dfb7e3
+Thu Jul 20 16:28:55 EDT 2023
 Contains Academic Integrity Log and Contract
 .gitignore included
 No Checkstyle Errors in src files
-Checkstyle Errors in test files
+No Checkstyle Errors in test files
 Passing all of your Unit & Integration Tests
 
 Coverage for your Unit & Integration Tests
@@ -29,7 +29,7 @@ WhackaMole
 151:getSymbolPoints() -> branch: 7/8; line: 4/5
 170:hasBeenClickedOn() -> branch: 8/8; line: 5/5
 185:allSymbolsClickedOn() -> branch: 6/6; line: 5/5
-200:updateNextRowAndCol() -> branch: 7/12; line: 12/17
+200:updateNextRowAndCol() -> branch: 9/12; line: 13/17
 234:clickOnSymbol() -> branch: 1/2; line: 5/5
 252:addMiss() -> line: 3/3
 261:getGrid() -> line: 1/1
