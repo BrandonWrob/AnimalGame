@@ -60,19 +60,24 @@ public class WhackaMole {
      * @param testing whether program is in testing mode
      */
     public WhackaMole(boolean testing) {
-        //assigns parameter to current instance variable testing
         this.testing = testing;
-        //assigns current instance variables of total score/ misses a value of 0
         this.totalScore = 0;
         this.numberOfMisses = 0;
-        //creates a grid and random number generator
         grid = new Grid(ROWS, COLS);
         rand = new Random();
-        //if testing it sets next row and column equal to 0
+
+        // Fill the grid with Symbol objects using SYMBOL_NAMES and SYMBOL_POINTS
+        for (int row = 0; row < ROWS; row++) {
+            for (int col = 0; col < COLS; col++) {
+                grid.setSymbol(row, col, new Symbol(SYMBOL_NAMES[row][col], 
+                    SYMBOL_POINTS[row][col]));
+            }
+        }
+        // if testing it sets row/col to 0, else random int is generated for
+        // next col/row
         if (testing) {
             nextRow = 0;
             nextCol = 0;
-            //else it sets next row and column to a random column/row
         } else {
             nextRow = rand.nextInt(ROWS);
             nextCol = rand.nextInt(COLS);
@@ -126,7 +131,12 @@ public class WhackaMole {
         if (col < 0 || col >= COLS) {
             throw new IllegalArgumentException("Invalid col");
         }
-        return SYMBOL_NAMES[row][col];
+    
+        // Get the symbol at the specified row and col from the grid
+        Symbol symbol = grid.getSymbol(row, col);
+        
+        // Return the name of the symbol
+        return symbol.getName();
     }
 
     /**
@@ -221,7 +231,17 @@ public class WhackaMole {
      * @param col represents column grid element is on
      */
     public void clickOnSymbol(int row, int col) {
+        if (!grid.getSymbol(row, col).hasBeenClickedOn()) {
+            // Set the symbol as clicked on
+            grid.getSymbol(row, col).setHasBeenClickedOn(true);
+    
+            // Update the total score with the points for the symbol
+            totalScore += grid.getSymbol(row, col).getPoints();
 
+    
+            // Update the next row and column for the next symbol
+            updateNextRowAndCol();
+        }
     }
     
     /**
