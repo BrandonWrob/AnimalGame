@@ -105,3 +105,19 @@ public class Symbol {
         return name + " " + points + " " + hasBeenClickedOn;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
