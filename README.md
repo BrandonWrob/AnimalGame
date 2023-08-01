@@ -1,5 +1,7 @@
 # csc116-051-P4-02
 
+Creates a GUI of a game where user clicks symbols that appear on a board to get points, once clicked the symbol remains on the board.
+
 Symbol Class: This class represents a single animal symbol used in the wack-a-moe game. First I created private instance fields to represent a name, points, and a boolean on whether an object was clicked, then I created a constructor to assign parameter values to the instance variables and check for invalid values. Then I added get methods to return the instance values, then I added a equal method to confirm the symbols being compared are equal. Finally I added a toString method which would return the private instance values seperated by a space. 
 
 Grid Class: This class represents a 2D layout of the symbols in the wack-a-moe game. First I added private instance fields to represent rows, cols, and symbols (called the Symbol class previously for this). Next I created a constructor to assign current instance values to be equal to the parameters (if invalid then it throw an IllegalArgumentException), next I added get methods to return the instance values. Then I created a setSymbol method to store the symbol in a 2D array at any given row/column, first it checks for invalid values, then it the values in array are valid, it will return a specific element in array for symbol. Finally I added a toString method which would iterate through the rows, adding each column element in array to string seperated by a space, then move onto next row with a linebreak prior. 
